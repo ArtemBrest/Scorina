@@ -1,0 +1,38 @@
+@mixin visually-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+@mixin text-points {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin focus($color: $blue, $offset: -1px) {
+  outline: 1px solid Hsla($color);
+  outline-offset: $offset;
+}
+
+@mixin firefox {
+  @-moz-document url-prefix() {
+    @content;
+  }
+}
+
+// Стили только для экранов с тачем
+@mixin touchscreen {
+  @media (hover: none) {
+    @content;
+  }
+}
