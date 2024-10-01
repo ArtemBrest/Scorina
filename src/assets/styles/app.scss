@@ -1,6 +1,6 @@
 html {
   height: 100vh;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.35;
 }
 
@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  font-family: "Open Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 
   &#{$self}--block-scroll {
     height: 100vh;

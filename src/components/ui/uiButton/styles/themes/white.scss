@@ -1,0 +1,21 @@
+$base: ".ui-button";
+
+#{$base} {
+  &--theme-white:not(#{$base}--lite-mode) {
+    background-color: Hsl($white);
+    color: Hsl($main_text);
+
+    &:hover {
+      background-color: Hsla($white, 0.8);
+    }
+
+    &:active {
+      background-color: Hsl($white);
+    }
+
+    &:disabled {
+      background-color: Hsla($white, 0.5);
+      color: Hsla($main_text, 0.3);
+    }
+  }
+}

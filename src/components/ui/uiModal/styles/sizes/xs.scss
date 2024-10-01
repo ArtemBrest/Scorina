@@ -1,0 +1,10 @@
+$base: ".ui-modal";
+
+#{$base}__container--size-xs {
+  width: 400px;
+
+  :deep(#{$base}__controls > *) {
+    flex-basis: 50%;
+    flex-grow: 1;
+  }
+}
