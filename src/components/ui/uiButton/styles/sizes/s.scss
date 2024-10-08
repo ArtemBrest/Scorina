@@ -1,0 +1,8 @@
+$base: ".ui-button";
+
+#{$base} {
+  &--size-s {
+    min-width: 16px;
+    min-height: 16px;
+  }
+}

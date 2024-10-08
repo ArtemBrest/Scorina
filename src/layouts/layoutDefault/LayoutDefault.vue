@@ -1,12 +1,12 @@
 <template>
     <div class="layout-default">
-        <MainHeader class="layout-default__header" />
+        <Header class="layout-default__header" />
         <router-view />
     </div>
 </template>
 
 <script setup lang="ts">
-    import MainHeader from '~/components/mainHeader/MainHeader.vue';
+    import Header from '~/components/header/Header.vue';
 </script>
 <style scoped lang="scss">
   @import "./styles/layout-default";

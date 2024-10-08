@@ -1,0 +1,53 @@
+.ui-button {
+  $self: &;
+
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: var(--ui-button-justify-content, center);
+  padding: var(--ui-button-indent-y, 5px) var(--ui-button-indent-x, 25px);
+  border-radius: $border_radius;
+  transition: background-color 0.1s, color 0.1s;
+
+  &--narrow{
+    --ui-button-indent-y: 0;
+    --ui-button-indent-x: 0;
+  }
+
+  & > * {
+    transition: transform 0.2s;
+  }
+
+  .is-keyboard-user &:focus {
+    @include focus;
+  }
+
+  & > * + * {
+    margin-left: 5px;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border_radius;
+    transition: background-color 0.1s, color 0.1s;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &__label {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+  }
+}

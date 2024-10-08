@@ -18,6 +18,22 @@ export const routes: RouteRecordRaw[] = [
         },
         component: () => import('~/pages/mainPage/MainPage.vue'),
     },
+    {
+        path: '/login',
+        meta: {
+            layout: Layouts.DEFAULT,
+            title: 'Авторизация',
+        },
+        component: () => import('~/pages/loginPage/LoginPage.vue'),
+    },
+    {
+        path: '/register',
+        meta: {
+            layout: Layouts.DEFAULT,
+            title: 'Регистрация',
+        },
+        component: () => import('~/pages/registerPage/RegisterPage.vue'),
+    },
     // Это правило для 404 страницы, пусть оно всегда в конце списка будет, пожалуйста
     {
         path: '/:pathMatch(.*)',

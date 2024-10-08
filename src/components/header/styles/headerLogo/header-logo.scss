@@ -1,0 +1,20 @@
+.header-logo {
+  &__link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+
+  &__bold {
+    font-size: 20px;
+    line-height: 19px;
+    color: Hsl($main);
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: Hsla($white);
+  box-shadow: 0 1px 4px 0 Hsla(0, 0%, 0%, 0.25);
+}

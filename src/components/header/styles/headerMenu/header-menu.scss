@@ -1,0 +1,43 @@
+.header-menu {
+  $self: &;
+
+  display: flex;
+  align-items: center;
+
+  &__item {
+    position: relative;
+    transition: all 0.1s;
+
+    &:hover {
+      #{$self}__sub {
+        display: block;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 10px;
+    color: Hsla($gray);
+    font-size: 16px;
+    line-height: 20px;
+
+    &.router-link-active {
+      color: Hsl($main);
+    }
+  }
+
+  &__sub {
+    min-width: 240px;
+  }
+}
+
+.header-menu-sub {
+  display: none;
+
+  &__item {
+    font-size: 14px;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+}

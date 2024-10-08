@@ -1,0 +1,25 @@
+$base: ".ui-button";
+
+#{$base} {
+  $self: &;
+
+  &--size-xl {
+    --ui-button-indent-y: 10px;
+    --ui-button-indent-x: 50px;
+    min-width: 40px;
+    min-height: 40px;
+
+    &#{$self}--lite-mode {
+      #{$self}__icon {
+        min-width: 40px;
+        min-height: 40px;
+      }
+    }
+
+    #{$self}__label {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+  }
+}
