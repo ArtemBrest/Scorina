@@ -1,5 +1,7 @@
 export enum UiButtonTheme {
-    DEFAULT = 'default',
+    PRIMARY = 'primary',
+    TRANSPARENT = 'transparent',
+    GRAY = 'gray',
     GREEN = 'green',
     RED = 'red',
     WHITE = 'white',

@@ -1,12 +1,12 @@
 $base: ".ui-button";
 
 #{$base} {
-  &--theme-green:not(#{$base}--lite-mode) {
+  &--theme-green {
     background-color: Hsl($green);
     color: Hsl($white);
 
     &:hover {
-      background-color: Hsl($green);
+      background-color: Hsl($dark_green);
     }
 
     &:active {
@@ -16,48 +16,6 @@ $base: ".ui-button";
     &:disabled {
       background-color: Hsla($green, 0.7);
       color: Hsla($white, 0.7);
-    }
-  }
-
-  &--theme-green#{$base}--lite-mode {
-    #{$base}__icon {
-      background-color: Hsl($green);
-      color: Hsl($white);
-    }
-
-    #{$base}__label {
-      color: Hsla($main_text, 0.7);
-    }
-
-    &:hover {
-      #{$base}__icon {
-        background-color: Hsl($green);
-      }
-
-      #{$base}__label {
-        color: Hsla($main_text, 0.8);
-      }
-    }
-
-    &:active {
-      #{$base}__icon {
-        background-color: Hsl($green);
-      }
-
-      #{$base}__label {
-        color: Hsla($main_text, 0.7);
-      }
-    }
-
-    &:disabled {
-      #{$base}__icon {
-        background-color: Hsla($green, 0.7);
-        color: Hsla($white, 0.7);
-      }
-
-      #{$base}__label {
-        color: Hsla($main_text, 0.3);
-      }
     }
   }
 }

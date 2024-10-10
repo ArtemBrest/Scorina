@@ -9,17 +9,10 @@ $base: ".ui-button";
     min-width: 40px;
     min-height: 40px;
 
-    &#{$self}--lite-mode {
-      #{$self}__icon {
-        min-width: 40px;
-        min-height: 40px;
-      }
-    }
-
     #{$self}__label {
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 22px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 23px;
     }
   }
 }

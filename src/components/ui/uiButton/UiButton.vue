@@ -35,7 +35,7 @@
         title?: string
     }>(), {
         tag: 'button',
-        theme: UiButtonTheme.DEFAULT,
+        theme: UiButtonTheme.PRIMARY,
         size: SizeType.m,
         uppercase: false,
         disabled: false,
@@ -47,6 +47,7 @@
         [`ui-button--theme-${props.theme}`]: Boolean(props.theme),
         [`ui-button--size-${props.size}`]: Boolean(props.size),
         'ui-button--narrow': props.narrow,
+        'ui-button--back-mode': props.backMode,
         'ui-button--uppercase': props.uppercase,
         'ui-button--disabled': props.disabled,
     }));

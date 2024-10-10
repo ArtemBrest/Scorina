@@ -34,10 +34,14 @@
             </div>
 
             <div class="footer__social">
-                <a
+                <UiButton
                     v-for="(item, index) in itemsSocial"
                     :key="index"
+                    tag="a"
                     :href="item.link"
+                    :size="SizeType.m"
+                    :theme="UiButtonTheme.PRIMARY"
+                    narrow
                     target="_blank"
                     rel="noopener noreferrer"
                     class="footer__social-link"
@@ -47,7 +51,7 @@
                         :size="SizeType.xxl"
                         class="footer__social-icon"
                     />
-                </a>
+                </UiButton>
             </div>
 
             <div class="footer__copyright">
@@ -58,18 +62,7 @@
 </template>
 
 <script setup lang="ts">
-    interface FooterItem {
-        title: string
-        text: string
-        icon: string
-        isLink: boolean
-        link?: string
-    }
-
-    interface SocialLinks {
-        link: string
-        icon: string
-    }
+    import type {FooterItem, FooterSocialLinks} from '~/components/footer/types';
 
     const items: FooterItem[] = [
         {
@@ -106,7 +99,7 @@
             link: 'mailto:kanc@bsuir.by',
         },
     ];
-    const itemsSocial: SocialLinks[] = [
+    const itemsSocial: FooterSocialLinks[] = [
         {
             link: 'https://github.com',
             icon: 'foundation:social-github',
@@ -127,5 +120,5 @@
 </script>
 
 <style scoped lang="scss">
-@import "./styles/footer";
+  @import "./styles/footer";
 </style>

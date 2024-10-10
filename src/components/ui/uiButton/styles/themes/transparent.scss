@@ -1,0 +1,20 @@
+$base: ".ui-button";
+
+#{$base} {
+  &--theme-default {
+    background-color: transparent;
+    color: Hsla($primary_text, 0.7);
+
+    &:hover {
+      color: Hsla($primary_text, 0.5);
+    }
+
+    &:active {
+      color: Hsla($primary_text, 0.7);
+    }
+
+    &:disabled {
+      color: Hsla($primary_text, 0.3);
+    }
+  }
+}

@@ -4,6 +4,7 @@ $base: ".ui-button";
   $self: &;
 
   &--size-l {
+    --ui-button-indent-x: 35px;
     min-width: 32px;
     min-height: 32px;
 
@@ -12,16 +13,10 @@ $base: ".ui-button";
       --align-center: flex-start;
     }
 
-    &#{$self}--lite-mode {
-      #{$self}__icon {
-        min-width: 32px;
-        min-height: 32px;
-      }
-    }
-
     #{$self}__label {
-      font-size: 14px;
-      line-height: 19px;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
     }
   }
 }

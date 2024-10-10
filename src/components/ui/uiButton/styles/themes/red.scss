@@ -1,12 +1,12 @@
 $base: ".ui-button";
 
 #{$base} {
-  &--theme-red:not(#{$base}--lite-mode) {
+  &--theme-red {
     background-color: Hsl($red);
     color: Hsl($white);
 
     &:hover {
-      background-color: Hsl($red);
+      background-color: Hsl($dark_red);
     }
 
     &:active {

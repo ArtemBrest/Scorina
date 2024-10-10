@@ -8,8 +8,9 @@ $base: ".ui-button";
     min-height: 24px;
 
     #{$self}__label {
-      font-size: 14px;
-      line-height: 19px;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
     }
   }
 }
