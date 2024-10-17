@@ -22,6 +22,7 @@
     "focus-trap": "7.5.4",
     "sass": "1.77.6",
     "socket.io-client": "^4.7.4",
+    "swiper": "^11.1.14",
     "vue": "3.4.31",
     "vue-final-modal": "^4.5.5",
     "vue-router": "4.4.0",
