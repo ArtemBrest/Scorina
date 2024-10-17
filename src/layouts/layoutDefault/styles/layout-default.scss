@@ -1,7 +1,5 @@
 .layout-default {
-  min-height: 0;
-  flex-grow: 1;
-
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 
@@ -14,9 +12,7 @@
   }
 
   &__content {
-    min-height: 0;
     flex-grow: 1;
-
     display: flex;
     flex-direction: column;
     padding: 20px;
