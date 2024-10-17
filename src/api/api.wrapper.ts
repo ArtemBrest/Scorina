@@ -55,6 +55,9 @@ const request = async (type: RequestType, url: string, formData?: FormData | obj
         case RequestType.PATCH:
             executeRequest = async () => useCustomFetch(url).patch(formData).json();
             break;
+        case RequestType.PUT:
+            executeRequest = async () => useCustomFetch(url).put(formData).json();
+            break;
         case RequestType.DELETE:
             executeRequest = async () => useCustomFetch(url).delete(formData).json();
             break;
@@ -114,11 +117,13 @@ const request = async (type: RequestType, url: string, formData?: FormData | obj
 const getRequest = async (url: string, formData?: FormData | object) => request(RequestType.GET, url, formData);
 const postRequest = async (url: string, formData?: FormData | object) => request(RequestType.POST, url, formData);
 const patchRequest = async (url: string, formData?: FormData | object) => request(RequestType.PATCH, url, formData);
+const putRequest = async (url: string, formData?: FormData | object) => request(RequestType.PUT, url, formData);
 const deleteRequest = async (url: string, formData?: FormData | object) => request(RequestType.DELETE, url, formData);
 
 export const apiWrapper = {
     get: getRequest,
     post: postRequest,
     patch: patchRequest,
+    put: putRequest,
     delete: deleteRequest,
 };

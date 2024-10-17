@@ -2,24 +2,35 @@
     <div>
         <h1>Авторизация</h1>
         <form @submit.prevent="handleSubmit">
-            <input
+            <UiInput
                 v-model="email"
                 type="email"
                 placeholder="Введите email"
                 required
+                :pattern="InputPattern.EMAIL"
             >
-            <input
+                <template #label>
+                    Введите email
+                </template>
+            </UiInput>
+            <UiInput
                 v-model="password"
                 type="password"
                 placeholder="Введите пароль"
                 required
+                :pattern="InputPattern.STRING_ARRAY"
             >
-            <button
-                type="submit"
+                <template #label>
+                    Введите пароль
+                </template>
+            </UiInput>
+            <UiButton
+                :theme="UiButtonTheme.PRIMARY"
+                :size="SizeType.xl"
                 :disabled="loading"
             >
                 {{ loading ? 'Загрузка...' : 'Войти' }}
-            </button>
+            </UiButton>
             <div
                 v-if="error"
                 class="error"
@@ -31,6 +42,8 @@
 </template>
 
 <script setup lang="ts">
+    import {InputPattern} from '~/components/ui/uiInput/types';
+
     const email = ref('');
     const password = ref('');
     const loading = ref(false);

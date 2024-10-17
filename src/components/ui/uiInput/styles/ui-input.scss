@@ -1,0 +1,113 @@
+.ui-input {
+  $self: &;
+
+  position: relative;
+  width: 100%;
+
+  &__text {
+    color: Hsl($primary_text);
+    font-size: 14px;
+    line-height: 19px;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+  &__field {
+    width: 100%;
+
+    padding: 6px 10px;
+    border: 1px solid Hsla($primary_text, 0.15);
+    border-radius: $border_radius;
+    background-color: Hsl($white);
+    color: Hsl($primary_text);
+    font-size: 14px;
+    line-height: 18px;
+    transition: border 0.1s, color 0.1s;
+
+    &::placeholder {
+      color: Hsla($primary_text, 0.7);
+    }
+
+    #{$self}:not(#{$self}--disabled):not(#{$self}--has-errors):hover & {
+      border-color: Hsla($primary_text, 0.3);
+    }
+
+    &--has-errors {
+      border-color: Hsl($red);
+    }
+
+    &--valid {
+      border-color: Hsl($green);
+    }
+
+    &:disabled {
+      cursor: default;
+
+      border-color: transparent;
+      background-color: Hsla($gray, 0.5);
+      color: Hsla($primary_text, 0.3);
+
+      &::placeholder {
+        color: Hsla($primary_text, 0.3);
+      }
+    }
+
+    .is-keyboard-user &:not(#{$self}--has-errors):focus {
+      @include focus;
+
+      & ~ #{$self}__message,
+      & ~ #{$self}__error {
+        display: block;
+      }
+    }
+  }
+
+  &__dropdown {
+    width: 100%;
+  }
+
+  &__message {
+    z-index: 50;
+
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  &__error {
+    margin-top: 2px;
+
+    display: none;
+    color: Hsl($red);
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+
+.ui-input-message {
+  max-width: 100%;
+
+  padding: 8px 12px;
+  border-radius: $border_radius;
+  background-color: Hsl($white);
+  color: Hsl($primary_text);
+  box-shadow: 0 2px 4px 0 hsla(0deg, 0%, 0%, 0.16);
+
+  &__item {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &--error {
+      color: Hsl($red);
+    }
+  }
+
+  &__label {
+    min-width: 32px;
+    margin-right: 5px;
+    color: Hsla($blue, 0.9);
+    font-weight: 700;
+  }
+}

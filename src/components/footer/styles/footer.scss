@@ -1,4 +1,5 @@
 .footer {
+  border-top: 1px solid Hsl($primary);
   padding: 25px 20px;
 
   &__container {
@@ -36,7 +37,7 @@
     &--link{
       transition: all .2s;
       &:hover {
-        color: Hsl($main);
+        color: Hsl($primary);
       }
     }
   }
@@ -46,17 +47,6 @@
     grid-auto-flow: column;
     grid-column-gap: 15px;
     align-items: start;
-
-    &-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all .2s;
-
-      &:hover {
-        color: Hsl($main);
-      }
-    }
   }
 
   &__copyright {
@@ -65,5 +55,4 @@
     color: Hsl($gray);
     text-transform: uppercase;
   }
-
 }

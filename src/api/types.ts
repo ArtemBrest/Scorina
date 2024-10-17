@@ -8,6 +8,11 @@ export enum StatusCode {
     FILE_TOO_LARGE = 413,
 }
 
+export enum StatusType {
+    HIDDEN = 'hidden',
+    PUBLISHED = 'published'
+}
+
 export enum FetchCombination {
     OVERWRITE = 'overwrite',
     CHAIN = 'chain'
@@ -24,6 +29,7 @@ export enum RequestType {
     GET = 'get',
     POST = 'post',
     PATCH = 'patch',
+    PUT = 'put',
     DELETE = 'delete'
 }
 

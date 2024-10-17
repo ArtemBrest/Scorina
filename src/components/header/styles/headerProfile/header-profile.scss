@@ -19,14 +19,14 @@ $base: ".header-profile";
 
   &__title {
     margin-bottom: 4px;
-    color: Hsl($main_text);
+    color: Hsl($primary_text);
     font-size: 12px;
     line-height: 14px;
   }
 
   &__icon {
     margin-left: 8px;
-    color: Hsl($main_text);
+    color: Hsl($primary_text);
     transition: transform 0.1s;
 
     #{$self}-picture--is-opened & {
@@ -80,7 +80,7 @@ $base: ".header-profile";
 
 .header-profile-item {
   &__label {
-    color: Hsl($main_text);
+    color: Hsl($primary_text);
     font-size: 14px;
     line-height: 18px;
   }
@@ -88,6 +88,6 @@ $base: ".header-profile";
   &__icon {
     flex-shrink: 0;
     margin-right: 8px;
-    color: Hsl($main_text);
+    color: Hsl($primary_text);
   }
 }

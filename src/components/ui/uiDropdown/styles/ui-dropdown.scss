@@ -10,7 +10,7 @@
     background-color: Hsl($white);
 
     &:not(#{$self}__content--menu) {
-      border: 1px solid Hsla($main_text, 0.15);
+      border: 1px solid Hsla($primary_text, 0.15);
       border-radius: $border_radius;
     }
 
@@ -48,8 +48,8 @@
       &::before {
         top: 0;
 
-        border-right: 1px solid Hsla($main_text, 0.15);
-        border-bottom: 1px solid Hsla($main_text, 0.15);
+        border-right: 1px solid Hsla($primary_text, 0.15);
+        border-bottom: 1px solid Hsla($primary_text, 0.15);
       }
     }
 
@@ -61,8 +61,8 @@
       &::before {
         top: 0;
 
-        border-right: 1px solid Hsla($main_text, 0.15);
-        border-bottom: 1px solid Hsla($main_text, 0.15);
+        border-right: 1px solid Hsla($primary_text, 0.15);
+        border-bottom: 1px solid Hsla($primary_text, 0.15);
       }
     }
 
@@ -73,8 +73,8 @@
       &::before {
         top: 0;
 
-        border-right: 1px solid Hsla($main_text, 0.15);
-        border-bottom: 1px solid Hsla($main_text, 0.15);
+        border-right: 1px solid Hsla($primary_text, 0.15);
+        border-bottom: 1px solid Hsla($primary_text, 0.15);
       }
     }
 
@@ -84,8 +84,8 @@
       transform: translateY(-50%);
 
       &::before {
-        border-bottom: 1px solid Hsla($main_text, 0.15);
-        border-left: 1px solid Hsla($main_text, 0.15);
+        border-bottom: 1px solid Hsla($primary_text, 0.15);
+        border-left: 1px solid Hsla($primary_text, 0.15);
       }
     }
 
@@ -96,8 +96,8 @@
       &::before {
         top: 0;
 
-        border-top: 1px solid Hsla($main_text, 0.15);
-        border-left: 1px solid Hsla($main_text, 0.15);
+        border-top: 1px solid Hsla($primary_text, 0.15);
+        border-left: 1px solid Hsla($primary_text, 0.15);
       }
     }
 
@@ -109,8 +109,8 @@
       &::before {
         top: 0;
 
-        border-top: 1px solid Hsla($main_text, 0.15);
-        border-left: 1px solid Hsla($main_text, 0.15);
+        border-top: 1px solid Hsla($primary_text, 0.15);
+        border-left: 1px solid Hsla($primary_text, 0.15);
       }
     }
 
@@ -121,8 +121,8 @@
       &::before {
         top: 0;
 
-        border-top: 1px solid Hsla($main_text, 0.15);
-        border-left: 1px solid Hsla($main_text, 0.15);
+        border-top: 1px solid Hsla($primary_text, 0.15);
+        border-left: 1px solid Hsla($primary_text, 0.15);
       }
     }
 
@@ -132,8 +132,8 @@
       transform: translateY(-50%);
 
       &::before {
-        border-top: 1px solid Hsla($main_text, 0.15);
-        border-right: 1px solid Hsla($main_text, 0.15);
+        border-top: 1px solid Hsla($primary_text, 0.15);
+        border-right: 1px solid Hsla($primary_text, 0.15);
       }
     }
   }

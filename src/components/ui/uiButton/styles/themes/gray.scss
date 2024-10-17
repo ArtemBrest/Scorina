@@ -1,0 +1,21 @@
+$base: ".ui-button";
+
+#{$base} {
+  &--theme-gray {
+    background-color: Hsl($gray);
+    color: Hsl($primary_text);
+
+    &:hover {
+      background-color: Hsl($gray_hover);
+    }
+
+    &:active {
+      background-color: Hsl($gray);
+    }
+
+    &:disabled {
+      background-color: Hsla($gray, 0.5);
+      color: Hsla($primary_text, 0.3);
+    }
+  }
+}

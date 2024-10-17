@@ -1,0 +1,41 @@
+.ui-base-label {
+  $self: &;
+
+  position: relative;
+
+  margin-bottom: 5px;
+
+  display: flex;
+  align-items: center;
+
+  &__text,
+  &__counter {
+    color: Hsla($primary_text, 0.7);
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  &__text {
+    display: flex;
+
+    #{$self}--disabled & {
+      color: Hsla($primary_text, 0.3);
+    }
+  }
+
+  &__append {
+    margin-left: 5px;
+
+    #{$self}--disabled & {
+      opacity: 0.3;
+    }
+  }
+
+  &__counter {
+    margin-left: auto;
+
+    #{$self}--disabled & {
+      color: Hsla($primary_text, 0.3);
+    }
+  }
+}
