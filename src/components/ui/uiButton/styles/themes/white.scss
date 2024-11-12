@@ -3,7 +3,8 @@ $base: ".ui-button";
 #{$base} {
   &--theme-white {
     background-color: Hsl($white);
-    color: Hsl($primary_text);
+    border: 1px solid Hsl($primary);
+    color: Hsl($primary);
 
     &:hover {
       background-color: Hsla($white, 0.8);
@@ -15,7 +16,7 @@ $base: ".ui-button";
 
     &:disabled {
       background-color: Hsla($white, 0.5);
-      color: Hsla($primary_text, 0.3);
+      color: Hsla($primary, 0.3);
     }
   }
 }

@@ -1,4 +1,6 @@
 .banner {
+  $self: &;
+
   display: flex;
   padding: 80px 20px 30px 20px;
 
@@ -13,6 +15,7 @@
     text-align: left;
     max-width: 432px;
     margin-bottom: 100px;
+
   }
 
   &__title {
@@ -24,7 +27,6 @@
   &__subtitle {
     font-size: 28px;
     color: Hsl($gray);
-    font-weight: normal;
   }
 
   &__university {
@@ -32,7 +34,8 @@
     align-items: center;
     margin-top: 15px;
     margin-bottom: 40px;
-    p {
+    &-text{
+      margin-left: 10px;
       font-size: 18px;
       color: Hsl($gray);
     }
@@ -46,8 +49,13 @@
     text-align: center;
     font-size: 28px;
     font-weight: 500;
-    margin: 0 auto 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
     color: Hsl($blue);
+    #{$self}__info--is-login &{
+      margin-bottom: 20px;
+    }
   }
 
   &__nav {
@@ -58,14 +66,22 @@
       min-width: 120px;
     }
   }
-
+  &__buttons{
+    display: flex;
+    button{
+      margin-right: 10px;
+    }
+    #{$self}__info--is-login &{
+      justify-content: center;
+    }
+  }
   &__box {
     position: relative;
     overflow: hidden;
 
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
     }
 

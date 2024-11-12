@@ -2,62 +2,62 @@
     <div class="banner">
         <div class="banner__container">
             <!-- Display this if the user is logged in -->
-            <div v-if="isLoggedIn">
-                <div class="banner__info">
-                    <h1 class="banner__title">
-                        SCORINA
-                    </h1>
-                    <p class="banner__subtitle">
-                        Система управления обучением
+            <div
+                class="banner__info"
+                :class="bannerInfoClasses"
+            >
+                <h1 class="banner__title">
+                    SCORINA
+                </h1>
+                <p class="banner__subtitle">
+                    Система управления обучением
+                </p>
+                <div
+                    v-if="isLoggedIn"
+                    class="banner__university"
+                >
+                    <img
+                        src="/src/assets/img/BSIUR-logo.png"
+                        class="banner__university-logo"
+                        alt="BSIUR-logo"
+                    >
+                    <p class="banner__university-text">
+                        Белорусский Государственный Университет Информатики и
+                        Радиоэлектроники
                     </p>
-                    <div class="banner__university">
-                        <img
-                            src="../../assets/img/BSIUR-logo.png"
-                            class="banner__logo"
-                            alt="BSIUR-logo"
+                </div>
+                <p
+                    v-if="isLoggedIn"
+                    class="banner__welcome"
+                >
+                    С возвращением, {{ userName }}!
+                </p>
+                <div class="banner__buttons">
+                    <UiButton
+                        v-if="isLoggedIn"
+                        title="В личный кабинет"
+                        :size="SizeType.xl"
+                    >
+                        В личный кабинет
+                    </UiButton>
+                    <template v-else>
+                        <UiButton
+                            title="Вход"
+                            class="banner__buttons-button"
+                            :size="SizeType.xl"
                         >
-                        <p>Белорусский Государственный Университет Информатики и Радиоэлектроники</p>
-                    </div>
-                    <p class="banner__welcome">
-                        С возвращением, {{ userName }}!
-                    </p>
+                            Вход
+                        </UiButton>
+                        <UiButton
+                            title="Регистрация"
+                            class="banner__buttons-button"
+                            :size="SizeType.xl"
+                            :theme="UiButtonTheme.WHITE"
+                        >
+                            Регистрация
+                        </UiButton>
+                    </template>
                 </div>
-                <UiButton
-                    tag="button"
-                    title="В личный кабинет"
-                    theme="primary"
-                    size="m"
-                >
-                    В личный кабинет
-                </UiButton>
-            </div>
-
-            <!-- Display this if the user is NOT logged in -->
-            <div v-else>
-                <div class="banner__info">
-                    <h1 class="banner__title">
-                        SSC
-                    </h1>
-                    <p class="banner__subtitle">
-                        Система управления обучением
-                    </p>
-                </div>
-                <UiButton
-                    tag="button"
-                    title="Вход"
-                    theme="primary"
-                    size="m"
-                >
-                    Вход
-                </UiButton>
-                <UiButton
-                    tag="button"
-                    title="Регистрация"
-                    theme="secondary"
-                    size="m"
-                >
-                    Регистрация
-                </UiButton>
             </div>
 
             <!-- Banner image and overlay -->
@@ -81,11 +81,15 @@
                             <img
                                 :src="slide.image"
                                 :alt="slide.title"
-                                class="banner__image"
+                                class="banner__box-image"
                             >
-                            <div class="banner__overlay">
-                                <p>{{ slide.title }}</p>
-                                <p>{{ slide.subtitle }}</p>
+                            <div class="banner__box-overlay">
+                                <p class="banner__box-overlay-title">
+                                    {{ slide.title }}
+                                </p>
+                                <p class="banner__box-overlay-subtitle">
+                                    {{ slide.subtitle }}
+                                </p>
                             </div>
                         </swiper-slide>
                     </swiper>
@@ -102,11 +106,12 @@
         unref,
     } from 'vue';
     import {Swiper, SwiperSlide} from 'swiper/vue';
-    import {useAuth} from '../../composables/useAuth';
     import 'swiper/css';
     import 'swiper/css/navigation';
     import 'swiper/css/pagination';
     import 'swiper/css/scrollbar';
+    import {useAuth} from '~/composables/useAuth';
+    import {UiButtonTheme} from '~/components/ui/uiButton/types';
 
     const {authStorage} = useAuth();
 
@@ -124,25 +129,24 @@
         return storage?.isSignIn === true;
     });
 
-    // Slides data
     const slides = ref([
         {
-            image: '../../assets/img/slide1.png',
+            image: '/src/assets/img/slide1.png',
             title: 'Новое обновление',
             subtitle: 'Подача документов до 15 августа включительно',
         },
         {
-            image: '../../assets/img/slide2.png',
+            image: '/src/assets/img/slide2.png',
             title: 'Новое обновление',
             subtitle: 'Система обучения получила важные обновления',
         },
         {
-            image: '../../assets/img/slide3.png',
+            image: '/src/assets/img/slide3.png',
             title: 'Новое обновление',
             subtitle: 'Система обучения получила важные обновления',
         },
         {
-            image: '../../assets/img/slide4.png',
+            image: '/src/assets/img/slide4.png',
             title: 'Новое обновление',
             subtitle: 'Система обучения получила важные обновления',
         },
@@ -155,8 +159,12 @@
         console.log('slide change');
     };
 
+    const bannerInfoClasses = computed(() => ({
+        'banner__info--is-login': isLoggedIn.value,
+    }));
+
 </script>
 
 <style scoped lang="scss">
-@import "./styles/styles";
+@import "./styles/main-page";
 </style>
