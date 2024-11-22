@@ -2,7 +2,7 @@
   $self: &;
 
   display: flex;
-  padding: 80px 20px 30px 20px;
+  padding: 80px 0 30px 0;
 
   &__container {
     display: flex;
@@ -14,8 +14,6 @@
   &__info {
     text-align: left;
     max-width: 432px;
-    margin-bottom: 100px;
-
   }
 
   &__title {
@@ -27,6 +25,9 @@
   &__subtitle {
     font-size: 28px;
     color: Hsl($gray);
+    #{$self}__info--not-logged-in &{
+      margin-bottom: 100px;
+    }
   }
 
   &__university {
@@ -85,7 +86,7 @@
       object-fit: cover;
     }
 
-    &__overlay {
+    &-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -93,11 +94,61 @@
       padding: 20px;
       font-size: 1.2rem;
       text-align: left;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      &-title {
+        font-size: 39px;
+        font-weight: bold;
+        margin: 0;
+      }
+      &-subtitle {
+        font-size: 18px;
+        margin: 0;
+      }
     }
   }
-
+  &__slide {
+    position: relative;
+  }
   &__slider {
     width: 657px;
     height: 427px;
+    position: relative;
   }
+}
+.swiper-container {
+  width: 100%;
+  height: 100%; /* Убедитесь, что высота контейнера соответствует высоте родительского элемента */
+  position: relative;
+}
+
+.swiper-pagination {
+  position: absolute;
+  align-items: center;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: #FFFFFF;
+  opacity: 1;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+  width: 10px;
+  height: 10px;
+  transition: all 0.2s;
+}
+
+.swiper-slide {
+  min-height: 100%;
 }

@@ -1,7 +1,6 @@
 <template>
     <div class="banner">
         <div class="banner__container">
-            <!-- Display this if the user is logged in -->
             <div
                 class="banner__info"
                 :class="bannerInfoClasses"
@@ -59,19 +58,23 @@
                     </template>
                 </div>
             </div>
-
-            <!-- Banner image and overlay -->
             <div class="banner__box">
                 <div class="banner__slider">
                     <swiper
-                        @swiper="onSwiper"
-                        @slideChange="onSlideChange"
-                        :slidesPerView="1"
-                        :spaceBetween="0"
-                        :pagination="{ clickable: true }"
-                        :loop="true"
+                        ref="mySwiper"
+                        :onSlideChange="onSlideChange"
+                        :onSwiper="initializeSwiper"
                         :direction="'vertical'"
-                        :scrollbar="{ draggable: true }"
+                        :spaceBetween="0"
+                        :slidesPerView="1"
+                        :autoplay="{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                            waitForTransition: true
+                        }"
+                        :loop="true"
+                        :pagination="{ el: '.swiper-pagination', clickable: true, dynamicBullets: true }"
+                        class="swiper-container"
                     >
                         <swiper-slide
                             v-for="(slide, index) in slides"
@@ -92,6 +95,15 @@
                                 </p>
                             </div>
                         </swiper-slide>
+
+                        <div class="swiper-pagination">
+                            <div
+                                v-for="(slide, index) in slides"
+                                :key="index"
+                                @click="goToSlide(index)"
+                                class="swiper-pagination-bullet"
+                            ></div>
+                        </div>
                     </swiper>
                 </div>
             </div>
@@ -105,13 +117,13 @@
         ref,
         unref,
     } from 'vue';
+    import {Swiper as SwiperClass} from 'swiper';
     import {Swiper, SwiperSlide} from 'swiper/vue';
     import 'swiper/css';
     import 'swiper/css/navigation';
     import 'swiper/css/pagination';
-    import 'swiper/css/scrollbar';
+    import 'swiper/css/autoplay';
     import {useAuth} from '~/composables/useAuth';
-    import {UiButtonTheme} from '~/components/ui/uiButton/types';
 
     const {authStorage} = useAuth();
 
@@ -130,41 +142,42 @@
     });
 
     const slides = ref([
-        {
-            image: '/src/assets/img/slide1.png',
-            title: 'Новое обновление',
-            subtitle: 'Подача документов до 15 августа включительно',
-        },
-        {
-            image: '/src/assets/img/slide2.png',
-            title: 'Новое обновление',
-            subtitle: 'Система обучения получила важные обновления',
-        },
-        {
-            image: '/src/assets/img/slide3.png',
-            title: 'Новое обновление',
-            subtitle: 'Система обучения получила важные обновления',
-        },
-        {
-            image: '/src/assets/img/slide4.png',
-            title: 'Новое обновление',
-            subtitle: 'Система обучения получила важные обновления',
-        },
+        {image: '/src/assets/img/slide1.png', title: 'Новое обновление', subtitle: 'Подача документов до 15 августа включительно'},
+        {image: '/src/assets/img/slide2.png', title: 'Новое обновление', subtitle: 'Система обучения получила важные обновления'},
+        {image: '/src/assets/img/slide3.png', title: 'Новое обновление', subtitle: 'Система обучения получила важные обновления'},
+        {image: '/src/assets/img/slide4.png', title: 'Новое обновление', subtitle: 'Система обучения получила важные обновления'},
+        {image: '/src/assets/img/slide4.png', title: 'Новое обновление', subtitle: 'Система обучения получила важные обновления'},
     ]);
-
-    const onSwiper = (swiper: any) => {
-        console.log(swiper);
-    };
-    const onSlideChange = () => {
-        console.log('slide change');
-    };
 
     const bannerInfoClasses = computed(() => ({
         'banner__info--is-login': isLoggedIn.value,
+        'banner__info--not-logged-in': !isLoggedIn.value,
     }));
 
-</script>
+    const mySwiper = ref<SwiperClass | null>(null);
 
+    const initializeSwiper = (swiperInstance: SwiperClass) => {
+        console.log(swiperInstance); // For debugging
+        mySwiper.value = swiperInstance;
+
+        // Ensure that the swiper instance is defined and has the autoplay method
+        if (mySwiper.value && mySwiper.value.autoplay) {
+            mySwiper.value.autoplay.start(); // Start autoplay manually
+        } else {
+            console.warn('Swiper instance or autoplay method is not available');
+        }
+    };
+
+    const goToSlide = (index: number) => {
+        if (mySwiper.value) {
+            mySwiper.value.slideTo(index);
+        }
+    };
+
+    const onSlideChange = () => {
+        console.log('Слайд изменился!');
+    };
+</script>
 <style scoped lang="scss">
 @import "./styles/main-page";
 </style>
