@@ -16,13 +16,21 @@
                 <p>{{ module.description }}</p>
                 <span>Status: {{ module.status }}</span>
                 <span>Order: {{ module.order_number }}</span>
-                <div v-if="isEditMode">
-                    <button @click="handleEditModule(module)">
-                        Edit
-                    </button>
-                    <button @click="handleDeleteModule(module.module_id)">
-                        Delete
-                    </button>
+                <div>
+                    <div v-if="isEditMode">
+                        <button @click="handleEditModule(module)">
+                            Edit
+                        </button>
+                        <button @click="handleDeleteModule(module.module_id)">
+                            Delete
+                        </button>
+                    </div>
+                    <!-- Переход на страницу модулей -->
+                    <router-link :to="`/disciplines/${disciplineId}/modules/${module.module_id}/lectures`">
+                        <button>
+                            View Lecture
+                        </button>
+                    </router-link>
                 </div>
             </div>
         </div>

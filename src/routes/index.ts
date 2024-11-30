@@ -50,22 +50,22 @@ export const routes: RouteRecordRaw[] = [
         },
         component: () => import('~/pages/modulesPage/ModulesPage.vue'),
     },
-    /* {
-        path: '/disciplines/:disciplineId/modules/:moduleId/lectures/:lectureId',
+    {
+        path: '/disciplines/:disciplineId/modules/:moduleId/lectures',
         meta: {
             layout: Layouts.DEFAULT,
             title: 'Лекция',
         },
-        component: () => import('~/pages/disciplinesPage/DisciplinesPageList.vue'),
+        component: () => import('~/pages/lecturesPage/LecturePage.vue'),
     },
-    {
-        path: '/disciplines/:disciplineId/modules/:moduleId/tests/:testId',
-        meta: {
-            layout: Layouts.DEFAULT,
-            title: 'Тест',
-        },
-        component: () => import('~/pages/disciplinesPage/DisciplinesPageList.vue'),
-    }, */
+    /* {
+         path: '/disciplines/:disciplineId/modules/:moduleId/tests/:testId',
+         meta: {
+             layout: Layouts.DEFAULT,
+             title: 'Тест',
+         },
+         component: () => import('~/pages/disciplinesPage/DisciplinesPageList.vue'),
+     }, */
     // Это правило для 404 страницы, пусть оно всегда в конце списка будет, пожалуйста
     {
         path: '/:pathMatch(.*)',
