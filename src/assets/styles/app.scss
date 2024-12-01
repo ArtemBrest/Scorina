@@ -20,7 +20,10 @@ body {
     overflow-y: hidden;
   }
 }
-
+.container{
+  width: 1600px;
+  margin: 0 auto;
+}
 #app {
   min-height: 0;
   flex-grow: 1;
