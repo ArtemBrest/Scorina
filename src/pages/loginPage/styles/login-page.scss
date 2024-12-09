@@ -1,0 +1,74 @@
+.auth {
+  margin: auto;
+  &__title {
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    color: Hsl($primary);
+    margin-bottom: 25px;
+  }
+
+  &__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+  }
+
+  &__input {
+    width: 100%;
+    max-width: 600px;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  &__password-field {
+    position: relative;
+    width: 100%;
+  }
+
+  &__toggle-password-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  &__submit-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__submit-btn {
+    position: relative;
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 16px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: Hsl($white);
+      cursor: not-allowed;
+    }
+  }
+
+  &__error-message {
+    position: absolute;
+    bottom: -40px;
+    color: Hsl($red);
+    font-size: 14px;
+    text-align: center;
+  }
+}

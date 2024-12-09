@@ -20,7 +20,6 @@
 }
 
 @mixin focus($color: $blue, $offset: -1px) {
-  outline: 1px solid Hsla($color);
   outline-offset: $offset;
 }
 

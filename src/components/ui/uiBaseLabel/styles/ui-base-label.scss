@@ -3,15 +3,14 @@
 
   position: relative;
 
-  margin-bottom: 5px;
-
   display: flex;
   align-items: center;
 
   &__text,
   &__counter {
-    color: Hsla($primary_text, 0.7);
-    font-size: 14px;
+    color: Hsla($primary, 0.7);
+    text-transform: uppercase;
+    font-size: 12px;
     line-height: 19px;
   }
 

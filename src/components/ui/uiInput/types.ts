@@ -13,5 +13,5 @@ export const enum InputPattern {
     POSITIVE_DIGIT = '^[0-9]*$',
     DIGIT_ARRAY = '^[\\d, ]*$',
     STRING_ARRAY = '^[\\w, ]*$',
-    EMAIL = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$',
+    EMAIL = '^[a-zA-Z0-9._%+-]*(@[a-zA-Z0-9.-]*)?(\\\\.[a-zA-Z]*)?$',
 }

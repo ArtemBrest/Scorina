@@ -1,0 +1,133 @@
+.disciplines,
+.modules{
+  position: relative;
+  $self: &;
+
+  &__subtitle {
+    font-size: 20px;
+    color: Hsl($primary);
+  }
+
+  &__loading,
+  &__error {
+    color: Hsl($red);
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  &__block{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+
+    &-container{
+      flex: 1;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: Hsl($white);
+    border-radius: 3px;
+    padding: 10px 20px 15px;
+    width: 350px;
+    box-shadow: 2px 2px 6px 2px Hsla($primary, .3);
+
+    &-head{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      min-height: 70px;
+    }
+    &-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    &-subtitle {
+      font-size: 12px;
+      color: Hsl($dark_gray);
+    }
+
+    &-description {
+      font-size: 14px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 4;
+      margin-bottom: auto;
+    }
+
+    &-icon {
+      margin-left: 15px;
+      color: Hsl($primary);
+    }
+  }
+
+  &__actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+
+    &-button {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &_view {
+        position: absolute;
+        top: 15px;
+        right: -15px;
+        border-radius: 50%;
+        padding: 5px;
+        border: 0;
+        background-color: Hsl($white);
+        box-shadow: 2px 2px 6px 2px Hsla($gray, .3);
+        &-icon {
+          color: Hsl($primary);
+          transition: color 0.3s ease;
+        }
+
+        &:hover {
+          background-color: Hsl($dark_primary);
+
+          .disciplines__actions-button_view-icon {
+            color: Hsl($white);
+          }
+        }
+      }
+    }
+  }
+
+  &__add-button {
+    margin-top: 50px;
+    padding: 8px 12px;
+    background-color: Hsl($primary);
+    color: Hsl($white);
+    font-size: 14px;
+  }
+  &__toggle-button{
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    &--edit {
+      background-color: Hsl($primary);
+      color: Hsl($white);
+    }
+  }
+}
