@@ -7,6 +7,7 @@
         >
             <component
                 :is="item.to ? 'router-link' : 'span'"
+                v-if="item.disabled"
                 :to="item.to"
                 class="header-menu__link"
                 :class="{
@@ -16,22 +17,6 @@
             >
                 {{ item.title }}
             </component>
-
-            <UiList
-                v-if="item.submenu"
-                class="header-menu__sub header-menu-sub"
-            >
-                <UiListItem
-                    v-for="subitem in item.submenu"
-                    :key="subitem.title"
-                    :tag="`a`"
-                    :to="subitem.to"
-                    class="header-menu-sub__item"
-                    :class="{ 'not-implemented': subitem.disabled }"
-                >
-                    {{ subitem.title }}
-                </UiListItem>
-            </UiList>
         </li>
     </ul>
 </template>
@@ -41,38 +26,32 @@
         {
             to: '/account',
             title: 'Личный кабинет',
-            disabled: true,
+            disabled: false,
         },
         {
             to: '/disciplines',
             title: 'Дисциплины',
             disabled: true,
-            submenu: [
-                /* {
-                    to: '#',
-                    title: 'Дисциплина 1',
-                }, */
-            ],
         },
         {
             to: '/testing',
             title: 'Тестирование',
-            disabled: true,
+            disabled: false,
         },
         {
             to: '/news',
             title: 'Новости',
-            disabled: true,
+            disabled: false,
         },
         {
             to: '/messages',
             title: 'Сообщения',
-            disabled: true,
+            disabled: false,
         },
         {
             to: '/students',
             title: 'Студенты',
-            disabled: true,
+            disabled: false,
         },
     ]);
 </script>

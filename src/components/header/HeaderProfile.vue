@@ -42,7 +42,7 @@
                 <UiList>
                     <UiListItem
                         tag="a"
-                        :to="'/'"
+                        :to="'#'"
                         class="header-profile-item"
                     >
                         <UiIcon

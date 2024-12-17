@@ -13,15 +13,23 @@
                 :key="lecture.lecture_id"
             >
                 <h2>{{ lecture.lecture_id }}: {{ lecture.title }}</h2>
-                <div v-html="lecture.content"></div>
+                <div>{{ lecture.content }}</div>
                 <span>Status: {{ lecture.status }}</span>
-                <div v-if="isEditMode">
-                    <button @click="handleEditLecture(lecture)">
-                        Edit
-                    </button>
-                    <button @click="handleDeleteLecture(lecture.lecture_id)">
-                        Delete
-                    </button>
+                <div>
+                    <div v-if="isEditMode">
+                        <button @click="handleEditLecture(lecture)">
+                            Edit
+                        </button>
+                        <button @click="handleDeleteLecture(lecture.lecture_id)">
+                            Delete
+                        </button>
+                    </div>
+                    <!-- Переход на страницу модулей -->
+                    <router-link :to="`/disciplines/${disciplineId}/modules/${moduleId}/lectures/${lecture.lecture_id}`">
+                        <button>
+                            View Lecture
+                        </button>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -31,7 +39,7 @@
         >
             Add Lecture
         </button>
-        <LecturePageForm
+        <LecturesPageForm
             v-if="showAddForm || editingLecture"
             @submit="handleSubmit"
             @close="handleCloseForm"
@@ -44,11 +52,12 @@
 <script setup lang="ts">
     import {useLectures} from '~/composables/useLectures';
     import type {LectureResponse} from '~/api/lectures/types';
-    import LecturePageForm from '~/pages/lecturesPage/LecturePageForm.vue';
+    import LecturesPageForm from '~/pages/lecturesPage/LecturesPageForm.vue';
 
     const {isEditMode} = useApp();
 
     const route = useRoute();
+    const disciplineId = Number(route.params.disciplineId);
     const moduleId = Number(route.params.moduleId);
 
     const {
@@ -85,7 +94,6 @@
     };
 
     const handleDeleteLecture = async (lectureId: number) => {
-
         await deleteLecture(lectureId, moduleId); // Удаляем модуль
     };
 

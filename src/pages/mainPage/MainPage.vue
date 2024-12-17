@@ -190,10 +190,26 @@
     });
     const isLoggedIn = computed(() => unref(authStorage)?.isSignIn === true);
     const slides = ref([
-        {image: '/src/assets/img/slide1.png', title: 'Новое обновление', subtitle: 'Подача документов до 15 августа включительно'},
-        {image: '/src/assets/img/slide2.png', title: 'Новое обновление', subtitle: 'Система обучения получила важные обновления'},
-        {image: '/src/assets/img/slide3.png', title: 'Новое обновление', subtitle: 'Система обучения получила важные обновления'},
-        {image: '/src/assets/img/slide4.png', title: 'Новое обновление', subtitle: 'Система обучения получила важные обновления'},
+        {
+            image: '/src/assets/img/slide1.png',
+            title: 'Новое обновление',
+            subtitle: 'Подача документов до 15 августа включительно',
+        },
+        {
+            image: '/src/assets/img/slide2.png',
+            title: 'Новое обновление',
+            subtitle: 'Система обучения получила важные обновления',
+        },
+        {
+            image: '/src/assets/img/slide3.png',
+            title: 'Новое обновление',
+            subtitle: 'Система обучения получила важные обновления',
+        },
+        {
+            image: '/src/assets/img/slide4.png',
+            title: 'Новое обновление',
+            subtitle: 'Система обучения получила важные обновления',
+        },
     ]);
     const bannerInfoClasses = computed(() => ({
         'banner__info--is-login': isLoggedIn.value,
@@ -227,19 +243,34 @@
     };
     const newsList = ref([
         {
-            title: 'Открыт новый набор', date: '18.03.2024 Деканат', text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.', image: '/src/assets/img/news.png',
+            title: 'Открыт новый набор',
+            date: '18.03.2024 Деканат',
+            text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.',
+            image: '/src/assets/img/news.png',
         },
         {
-            title: 'Открыт новый набор', date: '18.03.2024 Деканат', text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.', image: '/src/assets/img/news.png',
+            title: 'Открыт новый набор',
+            date: '18.03.2024 Деканат',
+            text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.',
+            image: '/src/assets/img/news.png',
         },
         {
-            title: 'Открыт новый набор', date: '18.03.2024 Деканат', text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.', image: '/src/assets/img/news.png',
+            title: 'Открыт новый набор',
+            date: '18.03.2024 Деканат',
+            text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.',
+            image: '/src/assets/img/news.png',
         },
         {
-            title: 'Открыт новый набор', date: '18.03.2024 Деканат', text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.', image: '/src/assets/img/news.png',
+            title: 'Открыт новый набор',
+            date: '18.03.2024 Деканат',
+            text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.',
+            image: '/src/assets/img/news.png',
         },
         {
-            title: 'Открыт новый набор', date: '18.03.2024 Деканат', text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.', image: '/src/assets/img/news.png',
+            title: 'Открыт новый набор',
+            date: '18.03.2024 Деканат',
+            text: 'Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает.',
+            image: '/src/assets/img/news.png',
         },
     ]);
     const newsListDesc = ref([
@@ -247,6 +278,7 @@
     ]);
     const showRegistrationButton = ref(false);
 
+    // eslint-disable-next-line no-return-assign
     watch(isLoggedIn, (newVal) => (showRegistrationButton.value = !newVal));
     const loading = ref(false);
     const handleLogin = async () => {
@@ -260,5 +292,5 @@
 </script>
 
 <style scoped lang="scss">
-@import "./styles/main-page";
+  @import "./styles/main-page";
 </style>

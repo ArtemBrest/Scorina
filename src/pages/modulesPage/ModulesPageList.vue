@@ -71,7 +71,7 @@
                         </UiButton>
                     </div>
                     <router-link
-                        :to="`/disciplines/${disciplineId}/modules/${module.module_id}/lectures`"
+                        :to="`/disciplines/${disciplineId}/modules/${module.module_id}`"
                         class="modules__actions-link"
                     >
                         <UiButton
