@@ -51,7 +51,15 @@ export const routes: RouteRecordRaw[] = [
         component: () => import('~/pages/modulesPage/ModulesPage.vue'),
     },
     {
-        path: '/disciplines/:disciplineId/modules/:moduleId/lectures',
+        path: '/disciplines/:disciplineId/modules/:moduleId',
+        meta: {
+            layout: Layouts.DEFAULT,
+            title: 'Модуль',
+        },
+        component: () => import('~/pages/lecturesPage/LecturesPage.vue'),
+    },
+    {
+        path: '/disciplines/:disciplineId/modules/:moduleId/lectures/:lectureId',
         meta: {
             layout: Layouts.DEFAULT,
             title: 'Лекция',
