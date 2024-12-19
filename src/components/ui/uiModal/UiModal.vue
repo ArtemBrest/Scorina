@@ -42,7 +42,6 @@
                 v-if="$slots.controls"
                 class="ui-modal__controls"
             >
-                <!-- TODO APM-2711-->
                 <slot
                     :close="() => emit('close')"
                     :confirm="(payload: any) => emit('confirm', payload)"
@@ -63,7 +62,6 @@
 
     interface Emits {
         (e: 'close'): void
-        // TODO APM-2711
         (e: 'confirm', payload?: any): void
         (e: 'cancel'): void
     }
@@ -88,7 +86,6 @@
         text(props: {}): Slot
         controls(props: {
             close: () => void
-            // TODO APM-2711
             confirm: (payload?: any) => void
             cancel: () => void
         }): Slot

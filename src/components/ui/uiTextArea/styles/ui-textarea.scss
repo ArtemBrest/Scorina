@@ -1,26 +1,21 @@
-.ui-input {
+.ui-textarea {
   $self: &;
 
   position: relative;
   width: 100%;
-
-  &__text {
-    color: Hsl($primary_text);
-    font-size: 14px;
-    line-height: 19px;
-    word-break: break-all;
-    word-wrap: break-word;
-  }
+  display: flex;
+  flex-direction: column;
 
   &__field {
     width: 100%;
-
-    padding: 6px 10px;
-    border-bottom: 1px solid Hsla($primary);
-    background-color: Hsl($white);
+    padding: 10px;
+    border: 1px solid Hsla($primary, 0.2);
+    border-radius: $border_radius;
     color: Hsl($primary_text);
     font-size: 14px;
     line-height: 18px;
+    resize: none;
+    min-height: 100px;
     transition: border 0.1s, color 0.1s;
 
     &::placeholder {
@@ -28,7 +23,7 @@
     }
 
     #{$self}:not(#{$self}--disabled):not(#{$self}--has-errors):hover & {
-      border-color: Hsla($primary_text, 0.3);
+      border-color: Hsla($primary, 0.8);
     }
 
     &--has-errors {
@@ -41,7 +36,6 @@
 
     &:disabled {
       cursor: default;
-
       border-color: transparent;
       background-color: Hsla($gray, 0.5);
       color: Hsla($primary_text, 0.3);
@@ -53,28 +47,45 @@
 
     .is-keyboard-user &:not(#{$self}--has-errors):focus {
       @include focus;
-
-      & ~ #{$self}__message,
-      & ~ #{$self}__error {
-        display: block;
-      }
     }
   }
 
-  &__dropdown {
-    width: 100%;
+  &__label {
+    color: Hsla($primary, 0.7);
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+
+    #{$self}--disabled & {
+      color: Hsla($primary_text, 0.3);
+    }
+  }
+
+  &__counter {
+    font-size: 12px;
+    color: Hsla($primary, 0.7);
+    margin-top: 4px;
+    text-align: right;
+  }
+
+  &__append {
+    margin-top: 5px;
+    #{$self}--disabled & {
+      opacity: 0.3;
+    }
   }
 
   &__message {
     z-index: 50;
-
     font-size: 11px;
     line-height: 13px;
+    margin-top: 8px;
+    color: Hsla($primary_text, 0.8);
   }
 
   &__error {
     margin-top: 2px;
-
     display: none;
     color: Hsl($red);
     font-size: 10px;
@@ -84,7 +95,6 @@
 
 .ui-input-message {
   max-width: 100%;
-
   padding: 8px 12px;
   border-radius: $border_radius;
   background-color: Hsl($white);

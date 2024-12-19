@@ -1,0 +1,66 @@
+.disciplines,
+.modules{
+  &__form {
+    width: 420px;
+    padding: 20px;
+    border-left: 1px solid Hsla($primary, .3);
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+
+    &-input,
+    &-textarea,
+    &-select {
+      width: 100%;
+      margin-top: 5px;
+      font-size: 14px;
+      margin-bottom: 20px;
+
+      &:focus {
+        outline: none;
+        border-color: Hsl($primary);
+      }
+    }
+    &-label{
+      display: flex;
+      flex-direction: column;
+      &-text{
+        font-size: 12px;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        color: Hsl($primary);
+      }
+    }
+
+    &-textarea {
+      min-height: 100px;
+    }
+    &-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    &-radio {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      &-input {
+        cursor: pointer;
+      }
+    }
+    &-submit,
+    &-cancel {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    &-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  }
+}
+
