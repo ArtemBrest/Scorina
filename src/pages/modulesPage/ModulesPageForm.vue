@@ -2,7 +2,7 @@
     <div
         v-if="!isSubmitting"
         @submit.prevent="onSubmit"
-        class="module__form"
+        class="modules__form"
     >
         <UiInput
             v-model="form.full_name"
