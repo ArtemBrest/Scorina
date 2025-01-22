@@ -1,38 +1,73 @@
 <template>
-    <form @submit.prevent="onSubmit">
-        <input
+    <div
+        v-if="!isSubmitting"
+        @submit.prevent="onSubmit"
+        class="lectures__form"
+    >
+        <UiInput
             v-model="form.title"
-            placeholder="Title"
+            placeholder="Заголовок"
             required
-        >
-        <textarea
+            class="lectures__form-input"
+        />
+        <UiTextarea
             v-model="form.content"
-            placeholder="Content"
+            placeholder="Контент"
             required
-        ></textarea>
-        <select
-            v-model="form.status"
-            required
-        >
-            <option
-                v-for="status in statusOptions"
-                :key="status"
-                :value="status"
+            class="lectures__form-textarea"
+        />
+        <label class="lectures__form-label">
+            <span class="lectures__form-label-text">Статус</span>
+            <div class="lectures__form-radio-group">
+                <div class="lectures__form-radio">
+                    <input
+                        id="status-hidden"
+                        v-model="form.status"
+                        type="radio"
+                        :value="statusType.HIDDEN"
+                        class="lectures__form-radio-input"
+                    >
+                    <label
+                        for="status-hidden"
+                        class="lectures__form-radio-label"
+                    >Спрятан</label>
+                </div>
+                <div class="lectures__form-radio">
+                    <input
+                        id="status-published"
+                        v-model="form.status"
+                        type="radio"
+                        :value="statusType.PUBLISHED"
+                        class="lectures__form-radio-input"
+                    >
+                    <label
+                        for="status-published"
+                        class="lectures__form-radio-label"
+                    >Показан</label>
+                </div>
+            </div>
+        </label>
+        <div class="lectures__form-buttons">
+            <UiButton
+                @click="onSubmit"
+                :theme="UiButtonTheme.PRIMARY"
+                :size="SizeType.xxl"
+                type="submit"
+                class="lectures__form-submit"
             >
-                {{ status }}
-            </option>
-        </select>
-
-        <button type="submit">
-            {{ isEditMode ? 'Update' : 'Add' }} Lecture
-        </button>
-        <button
-            @click="$emit('close')"
-            type="button"
-        >
-            Cancel
-        </button>
-    </form>
+                Сохранить изменения
+            </UiButton>
+            <UiButton
+                @click="onClose"
+                :theme="UiButtonTheme.WHITE"
+                :size="SizeType.xxl"
+                type="button"
+                class="lectures__form-cancel"
+            >
+                Отмена
+            </UiButton>
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -46,12 +81,11 @@
 
     const emit = defineEmits(['submit', 'close']);
     const statusType = StatusType;
+    const isSubmitting = ref(false);
 
-    const isEditMode = !!props.lecture;
     const form = ref<Lecture>({
         title: '',
         content: '',
-        // order_number: 1,
         status: statusType.PUBLISHED,
         module_id: props.moduleId,
     });
@@ -66,13 +100,23 @@
         {immediate: true},
     );
 
-    const statusOptions = ['PUBLISHED', 'HIDDEN']; // Опции для статуса модуля
-
-    const onSubmit = () => {
-        emit('submit', form.value); // Передаем данные формы родительскому компоненту
+    const onSubmit = async () => {
+        isSubmitting.value = true;
+        try {
+            await emit('submit', form.value);
+        } catch (error) {
+            console.error('Ошибка при сохранении:', error);
+        } finally {
+            isSubmitting.value = false;
+            emit('close');
+        }
     };
 
     const onClose = () => {
         emit('close');
     };
 </script>
+
+<style scoped lang="scss">
+@import "../disciplinesPage/styles/disciplines-page-form";
+</style>
