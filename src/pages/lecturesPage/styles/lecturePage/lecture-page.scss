@@ -1,39 +1,48 @@
 /* Default styles for CKEditor content */
 .lecture-page {
-  &__content {
+  &__content{
     ::v-deep(h2) {
       font-size: 40px;
       font-weight: 700;
       margin-bottom: 16px;
+      color: Hsl($primary_text);
     }
 
     ::v-deep(h3) {
       font-size: 32px;
       font-weight: 700;
       margin-bottom: 12px;
+      color: Hsl($primary_text);
     }
 
     ::v-deep(h4) {
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 8px;
+      color: Hsl($primary_text);
     }
 
     ::v-deep(p) {
       font-size: 16px;
       line-height: 18px;
       margin-bottom: 16px;
+      color: Hsl($primary_text);
+    }
+
+    ::v-deep(b), ::v-deep(strong) {
+      font-weight: 700;
+    }
+
+    ::v-deep(ul), ::v-deep(ol) {
+      margin: 16px 0;
+      padding-left: 32px;
     }
 
     ::v-deep(ul) {
-      margin: 16px 0;
-      padding-left: 32px;
       list-style-type: disc;
     }
 
     ::v-deep(ol) {
-      margin: 16px 0;
-      padding-left: 32px;
       list-style-type: decimal;
     }
 
@@ -44,13 +53,13 @@
     ::v-deep(blockquote) {
       font-size: 20px;
       font-style: italic;
-      border-left: 4px solid #ccc;
+      border-left: 4px solid Hsl($gray);
       padding-left: 16px;
       margin: 16px 0;
     }
 
-    ::v-deep(pre) {
-      background-color: #f5f5f5;
+    ::v-deep(pre), ::v-deep(code) {
+      background-color: Hsl($gray_hover);
       padding: 16px;
       border-radius: 4px;
       font-family: "Courier New", Courier, monospace;
@@ -58,19 +67,23 @@
     }
 
     ::v-deep(code) {
-      background-color: #f5f5f5;
       padding: 2px 4px;
-      border-radius: 4px;
-      font-family: "Courier New", Courier, monospace;
+    }
+
+    ::v-deep(iframe) {
+      width: 100%;
+      height: 500px;
+      border: none;
+      margin: 16px 0;
     }
 
     ::v-deep(a) {
-      color: #0056b3;
+      color: hsl(var(--blue));
       text-decoration: underline;
     }
 
     ::v-deep(a:hover) {
-      color: #003d82;
+      color: Hsl($dark_primary);
       text-decoration: none;
     }
 
@@ -80,14 +93,14 @@
       margin: 16px 0;
     }
 
-    ::v-deep(th, td) {
-      border: 1px solid #ccc;
+    ::v-deep(th), ::v-deep(td) {
+      border: 1px solid Hsl($gray);
       padding: 8px;
       text-align: left;
     }
 
     ::v-deep(th) {
-      background-color: #f5f5f5;
+      background-color: Hsl($gray_bg);
       font-weight: 700;
     }
   }

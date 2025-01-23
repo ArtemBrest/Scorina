@@ -31,4 +31,5 @@
     @import "@/assets/styles/reset.scss";
     @import "@/assets/styles/app.scss";
     @import "../node_modules/vue-final-modal/dist/style.css";
+    @import "../node_modules/@ckeditor/ckeditor5-theme-lark/theme/index.css";
 </style>

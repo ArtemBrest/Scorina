@@ -1,5 +1,6 @@
 <template>
     <div class="modules container">
+        <Breadcrumbs :items="breadcrumbsItems" />
         <h1 class="modules__title">
             Менеджер Модулей
         </h1>
@@ -11,9 +12,20 @@
     import {useRouter} from 'vue-router';
     import ModulesPageList from '~/pages/modulesPage/ModulesPageList.vue';
     import {useAuth} from '~/composables/useAuth';
+    import type {Breadcrumb} from '~/components/breadcrumbs/types/Breadcrumb';
 
     const router = useRouter();
     const {authStorage} = useAuth();
+
+    const breadcrumbsItems = computed<Breadcrumb[]>(() => [
+        {
+            to: '/disciplines/',
+            title: 'Дисциплины',
+        },
+        {
+            title: 'Модули',
+        },
+    ]);
 
     const isLoggedIn = computed(() => authStorage.value?.isSignIn === true);
 
@@ -25,5 +37,5 @@
 </script>
 
 <style scoped lang="scss">
-@import "../disciplinesPage/styles/disciplines-page";
+  @import "../disciplinesPage/styles/disciplines-page";
 </style>

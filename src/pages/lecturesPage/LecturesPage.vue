@@ -1,23 +1,36 @@
 <template>
-    <div>
-        <h1>Lecture Management</h1>
-        <div class="lectures container">
-            <h1 class="lectures__title">
-                Менеджер лекций
-            </h1>
-            <LecturePageList />
-        </div>
+    <div class="lectures container">
+        <Breadcrumbs :items="breadcrumbsItems" />
+        <h1 class="lectures__title">
+            Менеджер лекций
+        </h1>
+        <LecturePageList />
     </div>
 </template>
 
 <script setup lang="ts">
-    import {useRouter} from 'vue-router';
     import {useAuth} from '~/composables/useAuth';
     import LecturePageList from '~/pages/lecturesPage/LecturesPageList.vue';
+    import type {Breadcrumb} from '~/components/breadcrumbs/types/Breadcrumb';
 
     const router = useRouter();
+    const currentRoute = useRoute();
     const {authStorage} = useAuth();
     const isLoggedIn = computed(() => authStorage.value?.isSignIn === true);
+
+    const breadcrumbsItems = computed<Breadcrumb[]>(() => [
+        {
+            to: '/disciplines/',
+            title: 'Дисциплины',
+        },
+        {
+            to: `/disciplines/${Number(currentRoute.params.disciplineId)}/modules/`,
+            title: 'Модули',
+        },
+        {
+            title: 'Лекции',
+        },
+    ]);
 
     onMounted(() => {
         if (!isLoggedIn.value) {

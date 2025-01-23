@@ -108,11 +108,6 @@
 
 <script setup lang="ts">
     import {useLectures} from '~/composables/useLectures';
-    import {
-        computed,
-        onMounted,
-        ref,
-    } from 'vue';
     import type {LectureResponse} from '~/api/lectures/types';
     import LecturePageForm from '~/pages/lecturesPage/LecturesPageForm.vue';
 
@@ -209,5 +204,5 @@
 </script>
 
 <style scoped lang="scss">
-@import "../disciplinesPage/styles/disciplines-page-list";
+  @import "../disciplinesPage/styles/disciplines-page-list";
 </style>

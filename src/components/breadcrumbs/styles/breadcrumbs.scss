@@ -1,0 +1,28 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    margin-right: 8px;
+
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      &::before {
+        margin-right: 8px;
+
+        content: "/";
+        color: Hsla($gray, 0.5);
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+  }
+
+  &__label {
+    color: Hsl($gray);
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
